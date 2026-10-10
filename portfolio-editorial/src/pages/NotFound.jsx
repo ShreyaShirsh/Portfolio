@@ -12,7 +12,7 @@ export default function NotFound() {
       className="flex min-h-screen flex-col items-center justify-center px-6 text-center"
     >
       <p className="mb-4 font-mono text-xs uppercase tracking-widest text-muted">404</p>
-      <h1 className="text-clamp-h1 font-extrabold tracking-tightest">PAGE NOT FOUND</h1>
+      <h1 className="text-clamp-h1 font-semibold tracking-tightest">PAGE NOT FOUND</h1>
       <Link to="/" className="link-underline mt-8 font-mono text-sm uppercase tracking-widest">
         Back to home
       </Link>

@@ -13,14 +13,14 @@ export default function TextReveal({ as: Tag = "div", text, className = "", dela
   return (
     <Tag className={className}>
       <span className="sr-only">{text}</span>
-      <span aria-hidden="true" className="inline">
+      {/* Observe the visible wrapper, not each word: the words start fully
+          clipped by their overflow-hidden mask, so they never intersect. */}
+      <motion.span aria-hidden="true" className="inline" initial="hidden" whileInView="show" viewport={viewportOnce}>
         {words.map((word, i) => (
           <span key={i} className="inline-block overflow-hidden pb-[0.1em] align-bottom">
             <motion.span
               className="inline-block"
-              initial={{ y: "110%" }}
-              whileInView={{ y: "0%" }}
-              viewport={viewportOnce}
+              variants={{ hidden: { y: "110%" }, show: { y: "0%" } }}
               transition={{
                 duration: 0.9,
                 ease: [0.22, 1, 0.36, 1],
@@ -32,7 +32,7 @@ export default function TextReveal({ as: Tag = "div", text, className = "", dela
             </motion.span>
           </span>
         ))}
-      </span>
+      </motion.span>
     </Tag>
   );
 }

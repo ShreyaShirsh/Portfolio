@@ -35,7 +35,7 @@ export default function ProjectCard({ project }) {
               <span className="font-mono text-xs uppercase tracking-widest text-muted">
                 {project.number} —
               </span>
-              <h3 className="mt-1 font-sans text-3xl font-bold tracking-tightest transition-transform duration-500 ease-editorial group-hover:translate-x-2 sm:text-5xl">
+              <h3 className="mt-1 font-sans text-2xl font-semibold tracking-tightest transition-transform duration-500 ease-editorial group-hover:translate-x-2 sm:text-4xl">
                 {project.name}
               </h3>
               <p className="mt-3 font-mono text-xs uppercase tracking-widest text-muted">

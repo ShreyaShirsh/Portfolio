@@ -15,7 +15,7 @@ export default function About() {
 
         <div className="grid grid-cols-1 gap-12 lg:grid-cols-12">
           <h2 className="lg:col-span-5">
-            <TextReveal text="ABOUT ME" className="text-clamp-h1 font-extrabold leading-[0.95] tracking-tightest" />
+            <TextReveal text="ABOUT ME" className="text-[clamp(2.5rem,6.5vw,5rem)] font-semibold leading-[1.05] tracking-tightest" />
           </h2>
 
           <motion.div

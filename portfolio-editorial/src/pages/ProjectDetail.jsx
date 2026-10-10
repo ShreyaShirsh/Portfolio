@@ -49,7 +49,7 @@ export default function ProjectDetail() {
           <h1>
             <TextReveal
               text={project.name}
-              className="text-clamp-h1 font-extrabold leading-[0.95] tracking-tightest"
+              className="text-clamp-h1 font-semibold leading-[1.05] tracking-tightest"
             />
           </h1>
 
@@ -106,7 +106,7 @@ export default function ProjectDetail() {
           <span className="flex items-center gap-2 font-mono text-xs uppercase tracking-widest text-muted">
             <ArrowLeft size={13} /> Previous
           </span>
-          <span className="text-2xl font-bold tracking-tightest transition-transform duration-500 ease-editorial group-hover:-translate-x-2 sm:text-4xl">
+          <span className="text-xl font-semibold tracking-tightest transition-transform duration-500 ease-editorial group-hover:-translate-x-2 sm:text-3xl">
             {prev.name}
           </span>
         </Link>
@@ -119,7 +119,7 @@ export default function ProjectDetail() {
           <span className="flex items-center gap-2 font-mono text-xs uppercase tracking-widest text-muted">
             Next <ArrowRight size={13} />
           </span>
-          <span className="flex items-center gap-2 text-2xl font-bold tracking-tightest transition-transform duration-500 ease-editorial group-hover:translate-x-2 sm:text-4xl">
+          <span className="flex items-center gap-2 text-xl font-semibold tracking-tightest transition-transform duration-500 ease-editorial group-hover:translate-x-2 sm:text-3xl">
             {next.name}
             <ArrowUpRight size={22} className="hidden sm:block" />
           </span>

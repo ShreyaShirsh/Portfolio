@@ -14,9 +14,9 @@ export default {
         muted: "#8a8a86",
       },
       fontSize: {
-        "clamp-hero": "clamp(3rem, 12vw, 9.5rem)",
-        "clamp-h1": "clamp(2.5rem, 7vw, 5.5rem)",
-        "clamp-h2": "clamp(2rem, 5vw, 3.75rem)",
+        "clamp-hero": "clamp(2.25rem, 5vw, 4.25rem)",
+        "clamp-h1": "clamp(1.5rem, 2.75vw, 2.5rem)",
+        "clamp-h2": "clamp(1.125rem, 1.9vw, 1.625rem)",
       },
       letterSpacing: {
         tightest: "-0.04em",

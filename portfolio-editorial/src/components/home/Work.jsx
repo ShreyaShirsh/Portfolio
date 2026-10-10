@@ -15,7 +15,7 @@ export default function Work() {
         </div>
 
         <h2 className="mb-16">
-          <TextReveal text="SELECTED WORK" className="text-clamp-h1 font-extrabold leading-[0.95] tracking-tightest" />
+          <TextReveal text="SELECTED WORK" className="text-clamp-h1 font-semibold leading-[1.05] tracking-tightest" />
         </h2>
 
         <motion.div variants={staggerContainer(0.08)} initial="hidden" whileInView="show" viewport={viewportOnce}>

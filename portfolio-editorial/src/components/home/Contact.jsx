@@ -1,4 +1,4 @@
-import { Download, Github, Linkedin, Instagram } from "lucide-react";
+import { Download, Github, Linkedin } from "lucide-react";
 import TextReveal from "../ui/TextReveal.jsx";
 import { site } from "../../data/site.js";
 
@@ -15,12 +15,12 @@ export default function Contact() {
         <a href={`mailto:${site.email}`} data-cursor="EMAIL" className="group block">
           <TextReveal
             text="LET'S WORK"
-            className="text-clamp-hero font-extrabold leading-[0.9] tracking-tightest"
+            className="text-[clamp(3rem,8vw,6rem)] font-bold leading-[1] tracking-tightest"
           />
           <TextReveal
             text="TOGETHER."
             delay={0.15}
-            className="text-clamp-hero font-extrabold leading-[0.9] tracking-tightest text-muted transition-colors duration-500 group-hover:text-ink"
+            className="text-[clamp(3rem,8vw,6rem)] font-bold leading-[1] tracking-tightest text-muted transition-colors duration-500 group-hover:text-ink"
           />
         </a>
 
@@ -40,9 +40,6 @@ export default function Contact() {
               </a>
               <a href={site.links.linkedin} target="_blank" rel="noreferrer" className="link-underline inline-flex w-fit items-center gap-2">
                 <Linkedin size={16} /> LinkedIn
-              </a>
-              <a href={site.links.instagram} target="_blank" rel="noreferrer" className="link-underline inline-flex w-fit items-center gap-2">
-                <Instagram size={16} /> Instagram
               </a>
             </div>
           </div>

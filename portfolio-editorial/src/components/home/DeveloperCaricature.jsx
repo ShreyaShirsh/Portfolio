@@ -20,7 +20,7 @@ export default function DeveloperCaricature() {
 
   const STATUSES = [
     { icon: Terminal, text: "Compiling ideas..." },
-    { icon: Cpu, text: "Computer Science @ work" },
+    { icon: Cpu, text: "Information Technology @ work" },
     { icon: Code2, text: "Building scalable apps" },
     { icon: Coffee, text: "Fueling on curiosity" },
   ];
@@ -83,13 +83,18 @@ export default function DeveloperCaricature() {
     return () => window.removeEventListener("mousemove", handleGlobalMouseMove);
   }, [mouseX, mouseY]);
 
-  // Click interaction: wink, emit floating code sparks, and cycle status
+  // Status bar plays as a slideshow, advancing every 3 seconds
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setStatusIndex((prev) => (prev + 1) % STATUSES.length);
+    }, 3000);
+    return () => clearInterval(interval);
+  }, [STATUSES.length]);
+
+  // Click interaction: wink and emit floating code sparks
   const handleClick = (e) => {
     setIsWinking(true);
     setTimeout(() => setIsWinking(false), 600);
-
-    // Cycle status
-    setStatusIndex((prev) => (prev + 1) % STATUSES.length);
 
     // Spawn sparks
     const rect = cardRef.current?.getBoundingClientRect();
@@ -140,7 +145,7 @@ export default function DeveloperCaricature() {
 
         {/* Top-right tech badge */}
         <div className="absolute right-4 top-4 z-30 font-mono text-[9px] uppercase tracking-widest text-muted/50">
-          CS_2026
+          IT_2026
         </div>
 
         {/* Floating Code Sparks (Spawned on Click) */}
@@ -434,18 +439,23 @@ export default function DeveloperCaricature() {
         {/* Bottom Interactive Status Bar */}
         <div className="absolute bottom-3 inset-x-3 z-30 flex items-center justify-between rounded-full border border-line/40 bg-black/60 px-3 py-1.5 backdrop-blur-md transition-colors hover:border-line hover:bg-black/80">
           <div className="flex items-center gap-2 font-mono text-[11px] text-ink">
-            <CurrentStatusIcon size={12} className="text-emerald-400" />
-            <span className="truncate max-w-[190px]">{STATUSES[statusIndex].text}</span>
+            <AnimatePresence mode="wait" initial={false}>
+              <motion.span
+                key={statusIndex}
+                initial={{ opacity: 0, y: 6 }}
+                animate={{ opacity: 1, y: 0 }}
+                exit={{ opacity: 0, y: -6 }}
+                transition={{ duration: 0.35, ease: [0.22, 1, 0.36, 1] }}
+                className="flex items-center gap-2"
+              >
+                <CurrentStatusIcon size={12} className="text-emerald-400" />
+                <span className="truncate max-w-[190px]">{STATUSES[statusIndex].text}</span>
+              </motion.span>
+            </AnimatePresence>
           </div>
           <Sparkles size={11} className="text-muted/60 group-hover:text-ink transition-colors" />
         </div>
       </motion.div>
-
-      {/* Editorial caption below the card */}
-      <div className="mt-3 flex items-center justify-between font-mono text-[10px] uppercase tracking-widest text-muted">
-        <span>INTERACTIVE AVATAR</span>
-        <span className="text-ink/60">[CLICK TO INTERACT]</span>
-      </div>
     </div>
   );
 }

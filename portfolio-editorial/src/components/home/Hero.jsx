@@ -19,14 +19,14 @@ export default function Hero() {
           {site.status}
         </motion.div>
 
-        <h1 className="font-sans font-extrabold leading-[0.92] tracking-tightest">
+        <h1 className="font-sans font-bold leading-[1] tracking-tightest">
           <TextReveal
             text={site.name}
             className="block text-clamp-hero"
             delay={0.15}
           />
-          <div className="mt-4 flex flex-col gap-1 sm:flex-row sm:items-center sm:gap-4 font-mono text-clamp-h2 font-medium tracking-tight text-muted uppercase">
-            <TextReveal text="Computer Science Student" delay={0.35} />
+          <div className="mt-5 flex flex-col gap-1 sm:flex-row sm:items-center sm:gap-4 font-mono text-clamp-h2 font-normal tracking-tight text-muted uppercase">
+            <TextReveal text="Information Technology Student" delay={0.35} />
             <span className="hidden sm:inline text-line/80">•</span>
             <TextReveal text="Developer" delay={0.5} />
           </div>

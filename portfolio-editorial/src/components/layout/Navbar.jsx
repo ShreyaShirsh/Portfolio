@@ -48,8 +48,7 @@ export default function Navbar() {
             data-cursor="HOME"
             className="relative z-10 font-mono text-sm font-medium uppercase tracking-widest text-ink"
           >
-            {site.initials}
-            <span className="hidden sm:inline"> / {site.name}</span>
+            {site.name}
           </Link>
 
           <ul className="hidden items-center gap-10 md:flex">
@@ -102,7 +101,7 @@ export default function Navbar() {
                   <a
                     href={item.href}
                     onClick={() => setMenuOpen(false)}
-                    className="block py-3 text-4xl font-extrabold tracking-tightest"
+                    className="block py-3 text-3xl font-semibold tracking-tightest"
                   >
                     {item.label}
                   </a>
