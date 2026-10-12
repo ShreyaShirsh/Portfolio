@@ -21,16 +21,18 @@ export default function DynamicBackground() {
     restDelta: 0.001,
   });
 
-  // Base background color interpolation across portfolio sections:
-  // 0.00 -> Hero: Deep Midnight Obsidian / Indigo
-  // 0.25 -> About: Deep Dusk / Twilight Plum
-  // 0.50 -> Work: Forest Noir / Deep Slate Emerald
-  // 0.75 -> Skills & Experience: Warm Espresso / Amber Bronze
-  // 1.00 -> Contact & Footer: Crimson Noir / Velvet Wine
+  // Base background color interpolation across portfolio sections. A soft,
+  // lifted slate (not pure black) with only gentle hue drift, so the page
+  // stays calm on the eyes as it scrolls:
+  // 0.00 -> Hero: Dusk Slate
+  // 0.25 -> About: Lavender Slate
+  // 0.50 -> Work: Sage Slate
+  // 0.75 -> Skills & Experience: Sand Slate
+  // 1.00 -> Contact & Footer: Mauve Slate
   const baseBg = useTransform(
     smoothProgress,
     [0, 0.25, 0.5, 0.75, 1],
-    ["#08090e", "#0d0812", "#050d0a", "#0e0906", "#0f050b"]
+    ["#12151c", "#14141d", "#11171a", "#16161a", "#15141a"]
   );
 
   // Orb 1 color transitions (Upper / Primary light)
@@ -38,11 +40,11 @@ export default function DynamicBackground() {
     smoothProgress,
     [0, 0.25, 0.5, 0.75, 1],
     [
-      "rgba(49, 46, 129, 0.36)",  // Twilight Indigo
-      "rgba(88, 28, 135, 0.34)",  // Amethyst Plum
-      "rgba(6, 78, 59, 0.32)",    // Emerald Noir
-      "rgba(146, 64, 14, 0.28)",  // Warm Amber Bronze
-      "rgba(159, 18, 57, 0.34)",  // Deep Velvet Rose
+      "rgba(96, 118, 168, 0.22)",  // Dusk Blue
+      "rgba(124, 114, 176, 0.20)", // Soft Lavender
+      "rgba(96, 146, 134, 0.18)",  // Sage
+      "rgba(166, 146, 120, 0.14)", // Warm Sand
+      "rgba(150, 116, 142, 0.16)", // Dusty Mauve
     ]
   );
 
@@ -51,11 +53,11 @@ export default function DynamicBackground() {
     smoothProgress,
     [0, 0.25, 0.5, 0.75, 1],
     [
-      "rgba(30, 41, 59, 0.45)",   // Slate Midnight
-      "rgba(76, 29, 149, 0.32)",  // Deep Violet
-      "rgba(15, 118, 110, 0.28)", // Dark Pine / Teal
-      "rgba(68, 40, 24, 0.32)",   // Dark Cognac
-      "rgba(76, 5, 25, 0.34)",    // Crimson Noir
+      "rgba(74, 94, 126, 0.22)",   // Mist Blue
+      "rgba(98, 94, 144, 0.18)",   // Periwinkle
+      "rgba(72, 124, 124, 0.18)",  // Soft Teal
+      "rgba(112, 102, 96, 0.16)",  // Warm Stone
+      "rgba(112, 92, 124, 0.18)",  // Heather
     ]
   );
 
@@ -64,10 +66,10 @@ export default function DynamicBackground() {
     smoothProgress,
     [0, 0.33, 0.66, 1],
     [
-      "rgba(56, 189, 248, 0.12)", // Ice highlight
-      "rgba(168, 85, 247, 0.11)", // Purple highlight
-      "rgba(52, 211, 153, 0.10)", // Jade highlight
-      "rgba(251, 146, 60, 0.11)", // Warm amber highlight
+      "rgba(156, 186, 214, 0.08)", // Pale sky highlight
+      "rgba(176, 166, 214, 0.08)", // Pale lilac highlight
+      "rgba(156, 204, 188, 0.07)", // Pale mint highlight
+      "rgba(214, 194, 164, 0.07)", // Pale sand highlight
     ]
   );
 
@@ -160,12 +162,12 @@ export default function DynamicBackground() {
         }}
       />
 
-      {/* Vignette overlay: softly darkens perimeter to maintain high contrast and focus */}
+      {/* Vignette overlay: a light edge falloff for focus, kept gentle so the page doesn't feel heavy */}
       <div
         className="absolute inset-0"
         style={{
           background:
-            "radial-gradient(ellipse at 50% 50%, transparent 45%, rgba(6, 6, 6, 0.65) 100%)",
+            "radial-gradient(ellipse at 50% 50%, transparent 55%, rgba(10, 11, 15, 0.3) 100%)",
         }}
       />
     </motion.div>

@@ -1,6 +1,6 @@
 import { Link, Navigate, useParams } from "react-router-dom";
 import { motion } from "framer-motion";
-import { ArrowLeft, ArrowRight, ArrowUpRight } from "lucide-react";
+import { ArrowLeft, ArrowRight, ArrowUpRight, Github } from "lucide-react";
 import { getAdjacentProjects, getProjectBySlug } from "../data/projects.js";
 import TextReveal from "../components/ui/TextReveal.jsx";
 import ImageReveal from "../components/ui/ImageReveal.jsx";
@@ -56,7 +56,15 @@ export default function ProjectDetail() {
           <p className="mt-8 max-w-xl text-lg leading-relaxed text-muted sm:text-xl">{project.oneLiner}</p>
 
           <ImageReveal className="mt-16 aspect-[16/9] w-full">
-            <PlaceholderImage label={`${project.name} — HERO IMAGE`} className="h-full w-full" />
+            {project.cover ? (
+              <img
+                src={project.cover}
+                alt={`${project.name} cover`}
+                className="h-full w-full border border-line object-cover"
+              />
+            ) : (
+              <PlaceholderImage label={`${project.name} — HERO IMAGE`} className="h-full w-full" />
+            )}
           </ImageReveal>
 
           <div className="mt-16 grid grid-cols-2 gap-8 border-y border-line py-10 sm:grid-cols-4">
@@ -83,17 +91,29 @@ export default function ProjectDetail() {
             ))}
           </motion.div>
 
-          <div className="mt-20 grid grid-cols-1 gap-6 sm:grid-cols-2">
-            {Array.from({ length: project.imageCount }).map((_, i) => (
-              <ImageReveal
-                key={i}
-                delay={i * 0.08}
-                className={`aspect-[4/3] w-full ${i === 0 ? "sm:col-span-2 sm:aspect-[16/9]" : ""}`}
+          {project.github && (
+            <motion.div
+              variants={fadeUp}
+              initial="hidden"
+              whileInView="show"
+              viewport={viewportOnce}
+              className="mt-20 flex flex-col gap-6 border-t border-line pt-10 sm:flex-row sm:items-center sm:justify-between"
+            >
+              <div>
+                <p className="mb-2 font-mono text-xs uppercase tracking-widest text-muted">Source code</p>
+                <p className="text-lg">Explore the full code and setup instructions on GitHub.</p>
+              </div>
+              <a
+                href={project.github}
+                target="_blank"
+                rel="noreferrer"
+                data-cursor="CODE"
+                className="inline-flex w-fit items-center gap-2 rounded-full border border-line px-5 py-2.5 text-sm transition-colors duration-300 hover:bg-ink hover:text-paper"
               >
-                <PlaceholderImage label={`${project.name} — IMAGE ${i + 1}`} className="h-full w-full" />
-              </ImageReveal>
-            ))}
-          </div>
+                <Github size={15} /> View on GitHub <ArrowUpRight size={15} />
+              </a>
+            </motion.div>
+          )}
         </div>
       </article>
 

@@ -1,0 +1,91 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1600 1200" width="1600" height="1200" role="img" aria-labelledby="t d">
+  <title id="t">Exoplanet Transit Detector — explainable transit classification</title>
+  <desc id="d">Illustration of the exoplanet pipeline: a noisy TESS light curve with periodic dips, a phase-folded transit with physics features, and a calibrated classification with SHAP drivers. Values are illustrative.</desc>
+  <defs>
+    <radialGradient id="glowSage" cx="50%" cy="45%" r="55%">
+      <stop offset="0" stop-color="#7fb8a8" stop-opacity="0.13"/>
+      <stop offset="1" stop-color="#7fb8a8" stop-opacity="0"/>
+    </radialGradient>
+    <radialGradient id="glowLav" cx="88%" cy="12%" r="45%">
+      <stop offset="0" stop-color="#9c94cf" stop-opacity="0.10"/>
+      <stop offset="1" stop-color="#9c94cf" stop-opacity="0"/>
+    </radialGradient>
+    <marker id="arrow" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="8" markerHeight="8" orient="auto">
+      <path d="M0 0 L10 5 L0 10 z" fill="#7fb8a8"/>
+    </marker>
+    <style>
+      .sans { font-family: Inter, "Helvetica Neue", Arial, sans-serif; }
+      .mono { font-family: "IBM Plex Mono", Consolas, "Courier New", monospace; }
+      .ink { fill: #f5f5f2; }
+      .muted { fill: #8a8a86; }
+      .sage { fill: #7fb8a8; }
+      .card { fill: #171b24; stroke: rgba(245,245,242,0.14); stroke-width: 1.5; }
+      .inset { fill: #12151c; stroke: rgba(245,245,242,0.14); stroke-width: 1.5; }
+      .rule { stroke: rgba(245,245,242,0.14); stroke-width: 1.5; }
+      .chip { fill: rgba(127,184,168,0.10); stroke: rgba(127,184,168,0.45); stroke-width: 1.5; }
+      .chipLav { fill: rgba(156,148,207,0.10); stroke: rgba(156,148,207,0.5); stroke-width: 1.5; }
+      .node { fill: #171b24; stroke: rgba(127,184,168,0.45); stroke-width: 1.5; }
+      .track { fill: rgba(245,245,242,0.08); }
+    </style>
+  </defs>
+
+  <rect width="1600" height="1200" fill="#12151c"/>
+  <rect width="1600" height="1200" fill="url(#glowSage)"/>
+  <rect width="1600" height="1200" fill="url(#glowLav)"/>
+
+  <text x="120" y="222" class="sans ink" font-size="34" font-weight="800" letter-spacing="-1">EXOPLANET TRANSIT DETECTOR</text>
+  <text x="1480" y="216" class="mono muted" font-size="18" letter-spacing="3" text-anchor="end">EXPLAINABLE CLASSIFICATION</text>
+  <line x1="120" y1="252" x2="1480" y2="252" class="rule"/>
+
+  <rect x="120" y="300" width="520" height="480" rx="14" class="card"/>
+  <rect x="960" y="300" width="520" height="480" rx="14" class="card"/>
+  <text x="152" y="348" class="mono muted" font-size="18" letter-spacing="3" text-anchor="start">01 — LIGHT CURVE</text>
+  <rect x="152" y="374" width="456" height="330" rx="10" class="inset"/>
+  <line x1="267.2" y1="396" x2="267.2" y2="684" stroke="#7fb8a8" stroke-opacity="0.35" stroke-width="1.5" stroke-dasharray="3 6"/>
+  <line x1="396.0" y1="396" x2="396.0" y2="684" stroke="#7fb8a8" stroke-opacity="0.35" stroke-width="1.5" stroke-dasharray="3 6"/>
+  <line x1="524.8" y1="396" x2="524.8" y2="684" stroke="#7fb8a8" stroke-opacity="0.35" stroke-width="1.5" stroke-dasharray="3 6"/>
+  <g fill="#f5f5f2" fill-opacity="0.6"><circle cx="172.0" cy="518.2" r="2.6"/><circle cx="174.8" cy="523.6" r="2.6"/><circle cx="177.6" cy="518.4" r="2.6"/><circle cx="180.4" cy="517.8" r="2.6"/><circle cx="183.2" cy="513.5" r="2.6"/><circle cx="186.0" cy="518.5" r="2.6"/><circle cx="188.8" cy="527.8" r="2.6"/><circle cx="191.6" cy="523.0" r="2.6"/><circle cx="194.4" cy="527.3" r="2.6"/><circle cx="197.2" cy="521.7" r="2.6"/><circle cx="200.0" cy="522.8" r="2.6"/><circle cx="202.8" cy="521.3" r="2.6"/><circle cx="205.6" cy="508.3" r="2.6"/><circle cx="208.4" cy="526.0" r="2.6"/><circle cx="211.2" cy="523.5" r="2.6"/><circle cx="214.0" cy="523.5" r="2.6"/><circle cx="216.8" cy="508.2" r="2.6"/><circle cx="219.6" cy="507.8" r="2.6"/><circle cx="222.4" cy="513.8" r="2.6"/><circle cx="225.2" cy="516.7" r="2.6"/><circle cx="228.0" cy="522.1" r="2.6"/><circle cx="230.8" cy="519.7" r="2.6"/><circle cx="233.6" cy="523.6" r="2.6"/><circle cx="236.4" cy="515.5" r="2.6"/><circle cx="239.2" cy="522.2" r="2.6"/><circle cx="242.0" cy="522.8" r="2.6"/><circle cx="244.8" cy="515.4" r="2.6"/><circle cx="247.6" cy="532.0" r="2.6"/><circle cx="250.4" cy="523.9" r="2.6"/><circle cx="253.2" cy="528.4" r="2.6"/><circle cx="256.0" cy="522.1" r="2.6"/><circle cx="258.8" cy="553.2" r="2.6"/><circle cx="261.6" cy="581.6" r="2.6"/><circle cx="264.4" cy="583.3" r="2.6"/><circle cx="267.2" cy="588.4" r="2.6"/><circle cx="270.0" cy="585.7" r="2.6"/><circle cx="272.8" cy="580.9" r="2.6"/><circle cx="275.6" cy="551.7" r="2.6"/><circle cx="278.4" cy="522.8" r="2.6"/><circle cx="281.2" cy="528.5" r="2.6"/><circle cx="284.0" cy="514.3" r="2.6"/><circle cx="286.8" cy="521.7" r="2.6"/><circle cx="289.6" cy="523.0" r="2.6"/><circle cx="292.4" cy="509.6" r="2.6"/><circle cx="295.2" cy="520.3" r="2.6"/><circle cx="298.0" cy="529.1" r="2.6"/><circle cx="300.8" cy="505.9" r="2.6"/><circle cx="303.6" cy="517.7" r="2.6"/><circle cx="306.4" cy="519.3" r="2.6"/><circle cx="309.2" cy="514.3" r="2.6"/><circle cx="312.0" cy="523.5" r="2.6"/><circle cx="314.8" cy="519.6" r="2.6"/><circle cx="317.6" cy="509.7" r="2.6"/><circle cx="320.4" cy="525.8" r="2.6"/><circle cx="323.2" cy="524.7" r="2.6"/><circle cx="326.0" cy="526.6" r="2.6"/><circle cx="328.8" cy="530.1" r="2.6"/><circle cx="331.6" cy="522.5" r="2.6"/><circle cx="334.4" cy="520.8" r="2.6"/><circle cx="337.2" cy="510.9" r="2.6"/><circle cx="340.0" cy="524.3" r="2.6"/><circle cx="342.8" cy="515.7" r="2.6"/><circle cx="345.6" cy="516.8" r="2.6"/><circle cx="348.4" cy="511.1" r="2.6"/><circle cx="351.2" cy="513.2" r="2.6"/><circle cx="354.0" cy="516.3" r="2.6"/><circle cx="356.8" cy="529.0" r="2.6"/><circle cx="359.6" cy="505.8" r="2.6"/><circle cx="362.4" cy="509.8" r="2.6"/><circle cx="365.2" cy="521.7" r="2.6"/><circle cx="368.0" cy="530.1" r="2.6"/><circle cx="370.8" cy="524.0" r="2.6"/><circle cx="373.6" cy="506.7" r="2.6"/><circle cx="376.4" cy="502.4" r="2.6"/><circle cx="379.2" cy="522.5" r="2.6"/><circle cx="382.0" cy="514.8" r="2.6"/><circle cx="384.8" cy="518.6" r="2.6"/><circle cx="387.6" cy="565.2" r="2.6"/><circle cx="390.4" cy="591.7" r="2.6"/><circle cx="393.2" cy="585.1" r="2.6"/><circle cx="396.0" cy="585.7" r="2.6"/><circle cx="398.8" cy="587.0" r="2.6"/><circle cx="401.6" cy="595.2" r="2.6"/><circle cx="404.4" cy="562.7" r="2.6"/><circle cx="407.2" cy="530.0" r="2.6"/><circle cx="410.0" cy="523.8" r="2.6"/><circle cx="412.8" cy="509.0" r="2.6"/><circle cx="415.6" cy="529.0" r="2.6"/><circle cx="418.4" cy="526.7" r="2.6"/><circle cx="421.2" cy="523.7" r="2.6"/><circle cx="424.0" cy="506.2" r="2.6"/><circle cx="426.8" cy="515.6" r="2.6"/><circle cx="429.6" cy="525.9" r="2.6"/><circle cx="432.4" cy="507.3" r="2.6"/><circle cx="435.2" cy="518.7" r="2.6"/><circle cx="438.0" cy="527.1" r="2.6"/><circle cx="440.8" cy="510.8" r="2.6"/><circle cx="443.6" cy="531.3" r="2.6"/><circle cx="446.4" cy="523.9" r="2.6"/><circle cx="449.2" cy="518.9" r="2.6"/><circle cx="452.0" cy="522.3" r="2.6"/><circle cx="454.8" cy="524.5" r="2.6"/><circle cx="457.6" cy="520.8" r="2.6"/><circle cx="460.4" cy="528.0" r="2.6"/><circle cx="463.2" cy="515.4" r="2.6"/><circle cx="466.0" cy="517.1" r="2.6"/><circle cx="468.8" cy="527.3" r="2.6"/><circle cx="471.6" cy="520.2" r="2.6"/><circle cx="474.4" cy="513.8" r="2.6"/><circle cx="477.2" cy="526.6" r="2.6"/><circle cx="480.0" cy="530.3" r="2.6"/><circle cx="482.8" cy="516.9" r="2.6"/><circle cx="485.6" cy="510.3" r="2.6"/><circle cx="488.4" cy="519.1" r="2.6"/><circle cx="491.2" cy="519.0" r="2.6"/><circle cx="494.0" cy="517.9" r="2.6"/><circle cx="496.8" cy="529.8" r="2.6"/><circle cx="499.6" cy="512.8" r="2.6"/><circle cx="502.4" cy="528.8" r="2.6"/><circle cx="505.2" cy="511.1" r="2.6"/><circle cx="508.0" cy="514.5" r="2.6"/><circle cx="510.8" cy="524.4" r="2.6"/><circle cx="513.6" cy="534.3" r="2.6"/><circle cx="516.4" cy="564.4" r="2.6"/><circle cx="519.2" cy="586.4" r="2.6"/><circle cx="522.0" cy="585.0" r="2.6"/><circle cx="524.8" cy="585.1" r="2.6"/><circle cx="527.6" cy="588.0" r="2.6"/><circle cx="530.4" cy="582.8" r="2.6"/><circle cx="533.2" cy="560.3" r="2.6"/><circle cx="536.0" cy="530.4" r="2.6"/><circle cx="538.8" cy="520.0" r="2.6"/><circle cx="541.6" cy="525.3" r="2.6"/><circle cx="544.4" cy="524.0" r="2.6"/><circle cx="547.2" cy="534.1" r="2.6"/><circle cx="550.0" cy="522.3" r="2.6"/><circle cx="552.8" cy="517.0" r="2.6"/><circle cx="555.6" cy="517.4" r="2.6"/><circle cx="558.4" cy="519.9" r="2.6"/><circle cx="561.2" cy="526.5" r="2.6"/><circle cx="564.0" cy="517.6" r="2.6"/><circle cx="566.8" cy="522.7" r="2.6"/><circle cx="569.6" cy="532.9" r="2.6"/><circle cx="572.4" cy="502.0" r="2.6"/><circle cx="575.2" cy="512.1" r="2.6"/><circle cx="578.0" cy="521.7" r="2.6"/><circle cx="580.8" cy="522.8" r="2.6"/><circle cx="583.6" cy="521.7" r="2.6"/><circle cx="586.4" cy="517.0" r="2.6"/><circle cx="589.2" cy="524.6" r="2.6"/></g>
+  <text x="172" y="404" class="mono muted" font-size="14" letter-spacing="1">FLUX</text>
+  <text x="588" y="690" class="mono muted" font-size="14" letter-spacing="1" text-anchor="end">TIME (DAYS)</text>
+  <text x="152" y="750" class="mono muted" font-size="15" letter-spacing="1">TESS · detrended (biweight)</text>
+  <text x="800" y="348" class="mono muted" font-size="18" letter-spacing="2" text-anchor="middle">02 — TLS + FOLD</text>
+  <rect x="690" y="384" width="220" height="170" rx="10" class="inset"/>
+  <g fill="#7fb8a8" fill-opacity="0.75"><circle cx="863.1" cy="440.6" r="2.3"/><circle cx="886.6" cy="440.9" r="2.3"/><circle cx="805.4" cy="513.8" r="2.3"/><circle cx="709.2" cy="445.0" r="2.3"/><circle cx="805.4" cy="519.9" r="2.3"/><circle cx="837.7" cy="438.7" r="2.3"/><circle cx="754.1" cy="438.0" r="2.3"/><circle cx="852.2" cy="442.2" r="2.3"/><circle cx="806.3" cy="510.8" r="2.3"/><circle cx="746.8" cy="435.6" r="2.3"/><circle cx="859.8" cy="449.7" r="2.3"/><circle cx="858.8" cy="439.1" r="2.3"/><circle cx="861.1" cy="439.8" r="2.3"/><circle cx="803.4" cy="506.4" r="2.3"/><circle cx="772.3" cy="456.7" r="2.3"/><circle cx="757.6" cy="440.2" r="2.3"/><circle cx="753.8" cy="435.6" r="2.3"/><circle cx="789.9" cy="498.3" r="2.3"/><circle cx="883.9" cy="452.4" r="2.3"/><circle cx="774.0" cy="463.7" r="2.3"/><circle cx="746.3" cy="440.5" r="2.3"/><circle cx="743.2" cy="443.3" r="2.3"/><circle cx="823.8" cy="483.7" r="2.3"/><circle cx="796.1" cy="504.4" r="2.3"/><circle cx="829.4" cy="447.7" r="2.3"/><circle cx="830.8" cy="438.0" r="2.3"/><circle cx="878.7" cy="441.7" r="2.3"/><circle cx="795.8" cy="501.8" r="2.3"/><circle cx="738.3" cy="441.1" r="2.3"/><circle cx="857.8" cy="435.6" r="2.3"/><circle cx="890.6" cy="436.0" r="2.3"/><circle cx="885.8" cy="443.1" r="2.3"/><circle cx="843.2" cy="441.3" r="2.3"/><circle cx="733.0" cy="442.3" r="2.3"/><circle cx="877.7" cy="441.0" r="2.3"/><circle cx="862.7" cy="437.4" r="2.3"/><circle cx="892.2" cy="437.4" r="2.3"/><circle cx="809.3" cy="506.1" r="2.3"/><circle cx="729.1" cy="453.2" r="2.3"/><circle cx="828.7" cy="451.5" r="2.3"/><circle cx="805.1" cy="514.9" r="2.3"/><circle cx="871.4" cy="437.8" r="2.3"/><circle cx="862.6" cy="440.9" r="2.3"/><circle cx="760.2" cy="443.7" r="2.3"/><circle cx="750.2" cy="436.7" r="2.3"/><circle cx="784.5" cy="508.0" r="2.3"/><circle cx="729.2" cy="443.9" r="2.3"/><circle cx="792.0" cy="507.5" r="2.3"/><circle cx="816.0" cy="514.3" r="2.3"/><circle cx="880.2" cy="437.0" r="2.3"/><circle cx="800.3" cy="504.0" r="2.3"/><circle cx="707.6" cy="438.8" r="2.3"/><circle cx="788.5" cy="510.2" r="2.3"/><circle cx="857.4" cy="440.4" r="2.3"/><circle cx="737.1" cy="432.1" r="2.3"/><circle cx="810.8" cy="511.3" r="2.3"/><circle cx="766.6" cy="433.7" r="2.3"/><circle cx="854.6" cy="439.3" r="2.3"/><circle cx="724.4" cy="436.5" r="2.3"/><circle cx="757.2" cy="438.6" r="2.3"/><circle cx="852.3" cy="433.6" r="2.3"/><circle cx="849.9" cy="439.7" r="2.3"/><circle cx="879.2" cy="433.5" r="2.3"/><circle cx="801.1" cy="512.4" r="2.3"/><circle cx="802.3" cy="508.1" r="2.3"/><circle cx="806.4" cy="504.9" r="2.3"/><circle cx="795.8" cy="517.2" r="2.3"/><circle cx="872.3" cy="437.2" r="2.3"/><circle cx="884.9" cy="439.6" r="2.3"/><circle cx="885.1" cy="446.4" r="2.3"/><circle cx="865.3" cy="441.7" r="2.3"/><circle cx="788.9" cy="511.9" r="2.3"/><circle cx="717.9" cy="440.1" r="2.3"/><circle cx="832.5" cy="441.9" r="2.3"/><circle cx="854.5" cy="442.3" r="2.3"/><circle cx="841.5" cy="438.3" r="2.3"/><circle cx="830.8" cy="446.4" r="2.3"/><circle cx="889.8" cy="448.1" r="2.3"/><circle cx="746.2" cy="444.8" r="2.3"/><circle cx="797.6" cy="508.5" r="2.3"/><circle cx="894.1" cy="441.5" r="2.3"/><circle cx="786.9" cy="507.4" r="2.3"/><circle cx="803.0" cy="508.2" r="2.3"/><circle cx="765.2" cy="442.8" r="2.3"/><circle cx="842.7" cy="446.3" r="2.3"/><circle cx="788.6" cy="510.8" r="2.3"/><circle cx="707.5" cy="436.6" r="2.3"/><circle cx="802.4" cy="516.1" r="2.3"/><circle cx="716.3" cy="448.8" r="2.3"/><circle cx="890.6" cy="439.2" r="2.3"/></g>
+  <line x1="646" y1="470" x2="684" y2="470" stroke="#7fb8a8" stroke-width="2" marker-end="url(#arrow)"/>
+  <line x1="916" y1="470" x2="954" y2="470" stroke="#7fb8a8" stroke-width="2" marker-end="url(#arrow)"/>
+  <circle cx="704" cy="601" r="4" class="sage"/>
+  <text x="718" y="606" class="mono muted" font-size="16">depth</text>
+  <circle cx="704" cy="631" r="4" class="sage"/>
+  <text x="718" y="636" class="mono muted" font-size="16">odd–even Δ</text>
+  <circle cx="704" cy="661" r="4" class="sage"/>
+  <text x="718" y="666" class="mono muted" font-size="16">secondary ratio</text>
+  <circle cx="704" cy="691" r="4" class="sage"/>
+  <text x="718" y="696" class="mono muted" font-size="16">transit shape</text>
+  <text x="992" y="348" class="mono muted" font-size="18" letter-spacing="3" text-anchor="start">03 — CLASSIFY</text>
+  <rect x="1357.0" y="320" width="94" height="38" rx="19" fill="rgba(127,184,168,0.14)" stroke="#7fb8a8" stroke-width="1.5"/>
+  <text x="1404" y="345" class="mono" fill="#7fb8a8" font-size="16" letter-spacing="1" text-anchor="middle">PLANET</text>
+  <text x="992" y="414" class="sans ink" font-size="26" font-weight="600">Planet</text>
+  <text x="1448" y="414" class="mono ink" font-size="22" text-anchor="end">87%</text>
+  <rect x="992" y="432" width="456" height="8" rx="4" class="track"/>
+  <rect x="992" y="432" width="397" height="8" rx="4" fill="#7fb8a8" fill-opacity="0.85"/>
+  <text x="992" y="490" class="sans ink" font-size="26" font-weight="600">Eclipsing Binary</text>
+  <text x="1448" y="490" class="mono ink" font-size="22" text-anchor="end">9%</text>
+  <rect x="992" y="508" width="456" height="8" rx="4" class="track"/>
+  <rect x="992" y="508" width="41" height="8" rx="4" fill="#9c94cf" fill-opacity="0.85"/>
+  <text x="992" y="566" class="sans ink" font-size="26" font-weight="600" fill-opacity="0.75">Noise</text>
+  <text x="1448" y="566" class="mono muted" font-size="22" text-anchor="end">4%</text>
+  <rect x="992" y="584" width="456" height="8" rx="4" class="track"/>
+  <rect x="992" y="584" width="18" height="8" rx="4" fill="#8a8a86" fill-opacity="0.85"/>
+  <line x1="992" y1="614" x2="1448" y2="614" class="rule"/>
+  <text x="992" y="648" class="mono muted" font-size="14" letter-spacing="2">SHAP · TOP DRIVERS</text>
+  <text x="992" y="684" class="sans muted" font-size="18">no secondary eclipse</text>
+  <rect x="1240" y="671" width="168" height="12" rx="3" fill="#7fb8a8" fill-opacity="0.9"/>
+  <text x="992" y="716" class="sans muted" font-size="18">odd = even depth</text>
+  <rect x="1240" y="703" width="124" height="12" rx="3" fill="#7fb8a8" fill-opacity="0.7"/>
+  <text x="992" y="748" class="sans muted" font-size="18">U-shaped transit</text>
+  <rect x="1240" y="735" width="86" height="12" rx="3" fill="#7fb8a8" fill-opacity="0.5"/>
+
+  <line x1="120" y1="860" x2="1480" y2="860" class="rule"/>
+  <text x="120" y="902" class="mono muted" font-size="16" letter-spacing="1">Example star · values illustrative · validated by injection-recovery</text>
+  <text x="1480" y="902" class="mono muted" font-size="16" letter-spacing="1" text-anchor="end">LIGHTKURVE · TLS · SCIKIT-LEARN · SHAP</text>
+</svg>

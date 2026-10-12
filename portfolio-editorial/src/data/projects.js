@@ -18,7 +18,9 @@ export const projects = [
       "Built a full-stack health assistant that accepts symptoms in natural language and returns ranked possible conditions, match percentages, risk levels, matched symptoms, precautions, and diet guidance. Added account registration and login, family-member management, assessment history, and downloadable PDF reports. Included an optional LangChain-based explanation layer that is disabled by default."],
     result: [
       "Developed an end-to-end symptom-assessment workflow with explainable results, semantic symptom matching, a TF-IDF fallback, and persistent assessment history. Users can review previous assessments and export reports as PDFs. The match percentage represents relative ranking confidence, not a medically validated probability; the project is intended for educational and informational use, not diagnosis."],
-    imageCount: 3,
+    // Optional: shown on the project card and as the case study's hero image.
+    cover: "/projects/diagnosure-cover.svg",
+    github: "https://github.com/ShreyaShirsh/DiagnoSure-Smart-Symptom-Analysis",
   },
   {
     number: "02",
@@ -33,7 +35,8 @@ export const projects = [
     process: ["Designed a concurrency-safe booking workflow using short-lived Redis seat holds, database row-level locking, and atomic conditional updates. Implemented idempotency keys to handle retries, RabbitMQ and Celery for asynchronous booking workflows, and the saga pattern with compensating actions for failures. Added Django Channels WebSockets for real-time seat-status updates and used pytest and Locust to validate correctness and load behavior."],
     solution: ["Built a full-stack ticket-booking application with a React seat-selection interface and Django REST API. Integrated Redis-based seat holds, transactional booking confirmation, asynchronous payment and ticket-processing steps, failure recovery, and WebSocket updates. Added automated tests for booking flows and concurrency, Docker Compose for running the services, and a Locust-based flash-sale load test."],
     result: ["Verified 15 automated tests against PostgreSQL, including real-thread concurrency tests. In a Locust test simulating 250 concurrent users competing for 40 seats, the system recorded exactly 40 confirmed bookings, zero overselling, and zero unexpected errors across 2,093 confirmation attempts. Identified and addressed a database connection-exhaustion bottleneck during load testing. The React frontend builds cleanly, although browser-level UI testing and public deployment have not been completed."],
-    imageCount: 3,
+    cover: "/projects/ticketsurge-cover.svg",
+    github: "https://github.com/ShreyaShirsh/TICKETSURGE",
   },
   {
     number: "03",
@@ -48,7 +51,8 @@ export const projects = [
     process: ["Built the pipeline in stages: ingest and normalize TESS light curves via lightkurve, detrend stellar variability with a robust biweight filter, and detect periodic dips using Transit Least Squares. Engineered physics-informed features (secondary-eclipse ratio, odd-even depth difference, transit shape) so each decision maps to a real astrophysical cause, and manufactured labeled training data by injecting known synthetic transits into quiet stars — solving the lack of ground-truth labels."],
     solution: ["A calibrated Random Forest classifies each signal as planet, eclipsing binary, or noise, with SHAP explaining every prediction in plain physical terms and calibrated probabilities giving trustworthy confidence. A batch runner processes many stars into a results catalog, and an interactive Streamlit app lets anyone analyze a star by its TESS ID."],
     result: ["Validated with synthetic injection-recovery to quantify detection completeness across planet size and orbital period. The pipeline produces explainable, confidence-scored classifications on real TESS data and surfaces its own limitations (e.g. shallow-transit sensitivity) — an honest, interpretable alternative to black-box detectors."],
-    imageCount: 4,
+    cover: "/projects/exoplanet-cover.svg",
+    github: "https://github.com/ShreyaShirsh/AI-enabled-detection-of-exoplanets",
   },
   {
     number: "04",
@@ -71,7 +75,8 @@ export const projects = [
     result: [
       "Achieved 60/60 reproducible replay scenarios, 37/40 eligible early retrieval cases (92.5%), 15/15 compound-intent identification cases (100%), and 90/90 supported extracts (100%), with zero fabricated citation IDs and 985/985 trace-coverage checks passing. Verified 58 prototype tests, 13 core tests, and 60/60 cases through the Docker WebSocket endpoint. Results come from the project's disclosed synthetic control corpus and local acceptance suite; independent benchmarking and official organizer-corpus validation remain pending."
     ],
-    imageCount: 3,
+    cover: "/projects/citefrontier-cover.svg",
+    github: "https://github.com/Polycoded/samsung_prism_final_submission",
   },
   // {
   //   number: "05",
@@ -86,7 +91,6 @@ export const projects = [
   //   process: "[Describe your build process and any notable engineering decisions.]",
   //   solution: "[Describe what you shipped.]",
   //   result: "[Describe the outcome — performance, adoption, or feedback.]",
-  //   imageCount: 3,
   // },
   // {
   //   number: "06",
@@ -101,7 +105,6 @@ export const projects = [
   //   process: "[Describe your process.]",
   //   solution: "[Describe the solution.]",
   //   result: "[Describe the outcome.]",
-  //   imageCount: 3,
   // },
 ];
 

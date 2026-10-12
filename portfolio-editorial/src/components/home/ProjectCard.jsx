@@ -25,7 +25,16 @@ export default function ProjectCard({ project }) {
                 transition={{ duration: 0.7, ease: [0.22, 1, 0.36, 1] }}
                 className="h-full w-full"
               >
-                <PlaceholderImage label={`${project.name} — IMAGE`} className="h-full w-full" />
+                {project.cover ? (
+                  <img
+                    src={project.cover}
+                    alt={`${project.name} cover`}
+                    loading="lazy"
+                    className="h-full w-full border border-line object-cover"
+                  />
+                ) : (
+                  <PlaceholderImage label={`${project.name} — IMAGE`} className="h-full w-full" />
+                )}
               </motion.div>
             </div>
           </div>

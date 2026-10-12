@@ -1,0 +1,117 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1600 1200" width="1600" height="1200" role="img" aria-labelledby="t d">
+  <title id="t">DiagnoSure — semantic symptom analysis</title>
+  <desc id="d">Illustration of the DiagnoSure flow: a plain-language symptom description is embedded and searched with FAISS, producing ranked condition matches with a risk level.</desc>
+  <defs>
+    <radialGradient id="glowSage" cx="50%" cy="45%" r="55%">
+      <stop offset="0" stop-color="#7fb8a8" stop-opacity="0.13"/>
+      <stop offset="1" stop-color="#7fb8a8" stop-opacity="0"/>
+    </radialGradient>
+    <radialGradient id="glowLav" cx="88%" cy="12%" r="45%">
+      <stop offset="0" stop-color="#9c94cf" stop-opacity="0.10"/>
+      <stop offset="1" stop-color="#9c94cf" stop-opacity="0"/>
+    </radialGradient>
+    <marker id="arrow" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="8" markerHeight="8" orient="auto">
+      <path d="M0 0 L10 5 L0 10 z" fill="#7fb8a8"/>
+    </marker>
+    <style>
+      .sans { font-family: Inter, "Helvetica Neue", Arial, sans-serif; }
+      .mono { font-family: "IBM Plex Mono", Consolas, "Courier New", monospace; }
+      .ink { fill: #f5f5f2; }
+      .muted { fill: #8a8a86; }
+      .sage { fill: #7fb8a8; }
+      .card { fill: #171b24; stroke: rgba(245,245,242,0.14); stroke-width: 1.5; }
+      .rule { stroke: rgba(245,245,242,0.14); stroke-width: 1.5; }
+      .chip { fill: rgba(127,184,168,0.10); stroke: rgba(127,184,168,0.45); stroke-width: 1.5; }
+      .track { fill: rgba(245,245,242,0.08); }
+    </style>
+  </defs>
+
+  <!-- Background -->
+  <rect width="1600" height="1200" fill="#12151c"/>
+  <rect width="1600" height="1200" fill="url(#glowSage)"/>
+  <rect width="1600" height="1200" fill="url(#glowLav)"/>
+
+  <!-- Header -->
+  <text x="120" y="222" class="sans ink" font-size="34" font-weight="800" letter-spacing="-1">DIAGNOSURE</text>
+  <text x="1480" y="216" class="mono muted" font-size="18" letter-spacing="3" text-anchor="end">SEMANTIC SYMPTOM ANALYSIS</text>
+  <line x1="120" y1="252" x2="1480" y2="252" class="rule"/>
+
+  <!-- 01 — Symptoms input -->
+  <rect x="120" y="300" width="520" height="480" rx="14" class="card"/>
+  <text x="152" y="348" class="mono muted" font-size="18" letter-spacing="3">01 — SYMPTOMS</text>
+  <rect x="152" y="374" width="456" height="180" rx="10" fill="#12151c" stroke="rgba(245,245,242,0.14)" stroke-width="1.5"/>
+  <text class="sans ink" font-size="28">
+    <tspan x="178" y="426">Sore throat, runny nose</tspan>
+    <tspan x="178" y="468">and a mild fever for</tspan>
+    <tspan x="178" y="510">two days.</tspan>
+  </text>
+  <rect x="306" y="486" width="3" height="32" class="sage"/>
+
+  <text x="152" y="606" class="mono muted" font-size="16" letter-spacing="3">EXTRACTED</text>
+  <rect x="152" y="626" width="164" height="44" rx="22" class="chip"/>
+  <text x="168" y="655" class="mono ink" font-size="20">sore throat</text>
+  <rect x="328" y="626" width="152" height="44" rx="22" class="chip"/>
+  <text x="344" y="655" class="mono ink" font-size="20">runny nose</text>
+  <rect x="152" y="684" width="152" height="44" rx="22" class="chip"/>
+  <text x="168" y="713" class="mono ink" font-size="20">mild fever</text>
+  <rect x="316" y="684" width="188" height="44" rx="22" class="chip"/>
+  <text x="332" y="713" class="mono ink" font-size="20">duration · 2d</text>
+
+  <!-- 02 — Embed + FAISS search -->
+  <text x="800" y="348" class="mono muted" font-size="18" letter-spacing="2" text-anchor="middle">02 — EMBED + FAISS</text>
+  <line x1="646" y1="540" x2="684" y2="540" stroke="#7fb8a8" stroke-width="2" marker-end="url(#arrow)"/>
+  <line x1="916" y1="540" x2="954" y2="540" stroke="#7fb8a8" stroke-width="2" marker-end="url(#arrow)"/>
+  <circle cx="800" cy="540" r="112" fill="none" stroke="rgba(245,245,242,0.16)" stroke-width="1.5" stroke-dasharray="4 7"/>
+  <g fill="#8a8a86" fill-opacity="0.55">
+    <circle cx="742" cy="470" r="4"/><circle cx="768" cy="448" r="3.5"/><circle cx="858" cy="462" r="4"/>
+    <circle cx="880" cy="512" r="3.5"/><circle cx="728" cy="530" r="3.5"/><circle cx="742" cy="610" r="4"/>
+    <circle cx="800" cy="626" r="3.5"/><circle cx="868" cy="604" r="4"/><circle cx="812" cy="458" r="3.5"/>
+    <circle cx="716" cy="574" r="3"/><circle cx="890" cy="566" r="3"/><circle cx="836" cy="636" r="3"/>
+  </g>
+  <g stroke="#7fb8a8" stroke-opacity="0.6" stroke-width="1.5">
+    <line x1="792" y1="536" x2="832" y2="502"/>
+    <line x1="792" y1="536" x2="760" y2="576"/>
+    <line x1="792" y1="536" x2="846" y2="560"/>
+  </g>
+  <g class="ink">
+    <circle cx="832" cy="502" r="5.5"/><circle cx="760" cy="576" r="5.5"/><circle cx="846" cy="560" r="5.5"/>
+  </g>
+  <circle cx="792" cy="536" r="18" fill="#7fb8a8" fill-opacity="0.18"/>
+  <circle cx="792" cy="536" r="7" class="sage"/>
+  <text x="800" y="702" class="mono muted" font-size="16" text-anchor="middle">semantic similarity</text>
+  <text x="800" y="728" class="mono muted" font-size="16" text-anchor="middle">+ literal match</text>
+
+  <!-- 03 — Ranked matches -->
+  <rect x="960" y="300" width="520" height="480" rx="14" class="card"/>
+  <text x="992" y="348" class="mono muted" font-size="18" letter-spacing="3">03 — RANKED MATCHES</text>
+  <rect x="1324" y="320" width="124" height="38" rx="19" fill="rgba(127,184,168,0.14)" stroke="#7fb8a8" stroke-width="1.5"/>
+  <text x="1386" y="345" class="mono sage" font-size="16" letter-spacing="1" text-anchor="middle">RISK · LOW</text>
+
+  <text x="992" y="414" class="sans ink" font-size="26" font-weight="600">Common Cold</text>
+  <text x="1448" y="414" class="mono ink" font-size="22" text-anchor="end">82%</text>
+  <rect x="992" y="432" width="456" height="8" rx="4" class="track"/>
+  <rect x="992" y="432" width="374" height="8" rx="4" class="sage"/>
+
+  <text x="992" y="506" class="sans ink" font-size="26" font-weight="600">Seasonal Influenza</text>
+  <text x="1448" y="506" class="mono ink" font-size="22" text-anchor="end">68%</text>
+  <rect x="992" y="524" width="456" height="8" rx="4" class="track"/>
+  <rect x="992" y="524" width="310" height="8" rx="4" fill="#9c94cf" fill-opacity="0.8"/>
+
+  <text x="992" y="598" class="sans ink" font-size="26" font-weight="600" fill-opacity="0.75">Allergic Rhinitis</text>
+  <text x="1448" y="598" class="mono muted" font-size="22" text-anchor="end">41%</text>
+  <rect x="992" y="616" width="456" height="8" rx="4" class="track"/>
+  <rect x="992" y="616" width="187" height="8" rx="4" fill="#8a8a86" fill-opacity="0.7"/>
+
+  <line x1="992" y1="664" x2="1448" y2="664" class="rule"/>
+  <text x="992" y="704" class="sans muted" font-size="18">Matched: sore throat · runny nose · fever</text>
+  <g class="mono muted" font-size="15" letter-spacing="1">
+    <circle cx="998" cy="739" r="4" class="sage"/><text x="1010" y="744">PRECAUTIONS</text>
+    <circle cx="1144" cy="739" r="4" class="sage"/><text x="1156" y="744">DIET GUIDANCE</text>
+    <circle cx="1308" cy="739" r="4" class="sage"/><text x="1320" y="744">PDF REPORT</text>
+  </g>
+
+  <!-- Footer -->
+  <line x1="120" y1="860" x2="1480" y2="860" class="rule"/>
+  <text x="120" y="902" class="mono muted" font-size="16" letter-spacing="1">Match % = relative ranking confidence · not a medical diagnosis</text>
+  <text x="1480" y="902" class="mono muted" font-size="16" letter-spacing="1" text-anchor="end">DJANGO REST · FAISS · SENTENCE-TRANSFORMERS</text>
+</svg>

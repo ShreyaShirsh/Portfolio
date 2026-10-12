@@ -9,7 +9,7 @@ export default {
       },
       colors: {
         ink: "#f5f5f2",
-        paper: "#0a0a0a",
+        paper: "#12151c",
         line: "rgba(245, 245, 242, 0.14)",
         muted: "#8a8a86",
       },

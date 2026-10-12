@@ -14,7 +14,7 @@ export default function Skills() {
         </div>
 
         <h2 className="mb-16 max-w-3xl">
-          <TextReveal text="What I do" className="text-clamp-h1 font-semibold leading-[1.05] tracking-tightest" />
+          <TextReveal text="What I do" className="text-[clamp(2.5rem,7vw,5.5rem)] font-extrabold leading-[0.95] tracking-tightest" />
         </h2>
 
         <motion.div

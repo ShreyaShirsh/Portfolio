@@ -1,0 +1,17 @@
+# Render Blueprint: deploys the portfolio as a static site.
+# Render reads this file when the repo is connected via "New > Blueprint".
+services:
+  - type: web
+    name: shreya-portfolio
+    runtime: static
+    rootDir: portfolio-editorial
+    buildCommand: npm ci && npm run build
+    staticPublishPath: dist
+    envVars:
+      - key: NODE_VERSION
+        value: "20"
+    # Client-side routing: serve index.html for deep links like /work/diagnosure
+    routes:
+      - type: rewrite
+        source: /*
+        destination: /index.html

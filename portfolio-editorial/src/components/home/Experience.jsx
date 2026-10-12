@@ -16,7 +16,7 @@ export default function Experience() {
         <h2 className="mb-16">
           <TextReveal
             text="EXPERIENCE & EDUCATION"
-            className="text-clamp-h1 font-semibold leading-[1.05] tracking-tightest"
+            className="text-[clamp(2.5rem,7vw,5.5rem)] font-extrabold leading-[0.95] tracking-tightest"
           />
         </h2>
 

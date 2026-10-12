@@ -1,11 +1,12 @@
 import { useEffect, useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 
+
 /**
  * Editorial cinematic preloader:
  * - 0–1s: Black screen + tiny typography "INITIALIZING EXPERIENCE"
  * - 1–2s: Huge 00 -> 100 counter rapidly increments
- * - 2–3s: Enormous "SHREYA" appears with the percentage moving behind it
+ * - 2–3s: "COMPILING IDEAS" appears with the percentage moving behind it
  * - 3s: Horizontal line sweeps across the screen
  * - 3–4s: Loading screen splits vertically like curtains
  * - 4s: Actual portfolio revealed underneath
@@ -33,7 +34,7 @@ export default function Loader({ onComplete }) {
       }, 16);
     }, 1000);
 
-    // Phase 2: Giant SHREYA appears at 2000ms, counter moves behind
+    // Phase 2: "COMPILING IDEAS" appears at 2000ms, counter moves behind
     const t2 = setTimeout(() => {
       setPhase(2);
     }, 2000);
@@ -78,7 +79,7 @@ export default function Loader({ onComplete }) {
 
   // Shared visual scene rendered identically inside both curtain halves
   const renderStageContent = () => (
-    <div className="relative w-screen h-screen flex flex-col items-center justify-center overflow-hidden bg-[#060606]">
+    <div className="relative w-screen h-screen flex flex-col items-center justify-center overflow-hidden bg-[#12151c]">
       {/* PHASE 0: Tiny Typography (0s - 1s) */}
       <AnimatePresence>
         {phase === 0 && (
@@ -109,16 +110,18 @@ export default function Loader({ onComplete }) {
         </div>
       )}
 
-      {/* PHASE 2: Enormous SHREYA Name (2s - 3s) */}
+      {/* PHASE 2: "COMPILING IDEAS" (2s - 3s). Each word sits in one half of
+          the screen, so the curtain split carries COMPILING left and IDEAS right. */}
       <AnimatePresence>
         {phase >= 2 && (
           <motion.div
-            initial={{ opacity: 0, scale: 0.9, letterSpacing: "0.05em" }}
-            animate={{ opacity: 1, scale: 1, letterSpacing: "-0.04em" }}
+            initial={{ opacity: 0, scale: 0.9 }}
+            animate={{ opacity: 1, scale: 1 }}
             transition={{ duration: 0.5, ease: [0.22, 1, 0.36, 1] }}
-            className="relative z-20 font-sans font-black text-ink text-[16vw] sm:text-[14vw] leading-none text-center select-none"
+            className="absolute inset-x-0 z-20 grid grid-cols-2 items-center font-sans font-black text-ink text-[8.7vw] leading-none tracking-tightest select-none"
           >
-            SHREYA
+            <span className="pr-[1.5vw] text-right">COMPILING</span>
+            <span className="pl-[1.5vw] text-left">IDEAS</span>
           </motion.div>
         )}
       </AnimatePresence>

@@ -1,0 +1,126 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1600 1200" width="1600" height="1200" role="img" aria-labelledby="t d">
+  <title id="t">TicketSurge — concurrency-safe flash-sale ticketing</title>
+  <desc id="d">Illustration of TicketSurge: a 40-seat map under a flash sale, the Redis-hold, row-lock, queue and WebSocket booking flow, and the Locust load-test results.</desc>
+  <defs>
+    <radialGradient id="glowSage" cx="50%" cy="45%" r="55%">
+      <stop offset="0" stop-color="#7fb8a8" stop-opacity="0.13"/>
+      <stop offset="1" stop-color="#7fb8a8" stop-opacity="0"/>
+    </radialGradient>
+    <radialGradient id="glowLav" cx="88%" cy="12%" r="45%">
+      <stop offset="0" stop-color="#9c94cf" stop-opacity="0.10"/>
+      <stop offset="1" stop-color="#9c94cf" stop-opacity="0"/>
+    </radialGradient>
+    <marker id="arrow" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="8" markerHeight="8" orient="auto">
+      <path d="M0 0 L10 5 L0 10 z" fill="#7fb8a8"/>
+    </marker>
+    <style>
+      .sans { font-family: Inter, "Helvetica Neue", Arial, sans-serif; }
+      .mono { font-family: "IBM Plex Mono", Consolas, "Courier New", monospace; }
+      .ink { fill: #f5f5f2; }
+      .muted { fill: #8a8a86; }
+      .sage { fill: #7fb8a8; }
+      .card { fill: #171b24; stroke: rgba(245,245,242,0.14); stroke-width: 1.5; }
+      .inset { fill: #12151c; stroke: rgba(245,245,242,0.14); stroke-width: 1.5; }
+      .rule { stroke: rgba(245,245,242,0.14); stroke-width: 1.5; }
+      .chip { fill: rgba(127,184,168,0.10); stroke: rgba(127,184,168,0.45); stroke-width: 1.5; }
+      .chipLav { fill: rgba(156,148,207,0.10); stroke: rgba(156,148,207,0.5); stroke-width: 1.5; }
+      .node { fill: #171b24; stroke: rgba(127,184,168,0.45); stroke-width: 1.5; }
+      .track { fill: rgba(245,245,242,0.08); }
+    </style>
+  </defs>
+
+  <rect width="1600" height="1200" fill="#12151c"/>
+  <rect width="1600" height="1200" fill="url(#glowSage)"/>
+  <rect width="1600" height="1200" fill="url(#glowLav)"/>
+
+  <text x="120" y="222" class="sans ink" font-size="34" font-weight="800" letter-spacing="-1">TICKETSURGE</text>
+  <text x="1480" y="216" class="mono muted" font-size="18" letter-spacing="3" text-anchor="end">CONCURRENCY-SAFE FLASH SALES</text>
+  <line x1="120" y1="252" x2="1480" y2="252" class="rule"/>
+
+  <rect x="120" y="300" width="520" height="480" rx="14" class="card"/>
+  <rect x="960" y="300" width="520" height="480" rx="14" class="card"/>
+  <text x="152" y="348" class="mono muted" font-size="18" letter-spacing="3" text-anchor="start">01 — FLASH SALE</text>
+  <rect x="171" y="372" width="418" height="6" rx="3" fill="#8a8a86" fill-opacity="0.5"/>
+  <rect x="171" y="402" width="40" height="40" rx="8" fill="#7fb8a8" fill-opacity="0.85"/>
+  <rect x="225" y="402" width="40" height="40" rx="8" fill="#7fb8a8" fill-opacity="0.85"/>
+  <rect x="279" y="402" width="40" height="40" rx="8" fill="#7fb8a8" fill-opacity="0.85"/>
+  <rect x="333" y="402" width="40" height="40" rx="8" fill="#9c94cf" fill-opacity="0.45" stroke="#9c94cf" stroke-width="1.5"/>
+  <rect x="387" y="402" width="40" height="40" rx="8" fill="#9c94cf" fill-opacity="0.45" stroke="#9c94cf" stroke-width="1.5"/>
+  <rect x="441" y="402" width="40" height="40" rx="8" fill="#7fb8a8" fill-opacity="0.85"/>
+  <rect x="495" y="402" width="40" height="40" rx="8" fill="none" stroke="rgba(245,245,242,0.28)" stroke-width="1.5"/>
+  <rect x="549" y="402" width="40" height="40" rx="8" fill="none" stroke="rgba(245,245,242,0.28)" stroke-width="1.5"/>
+  <rect x="171" y="456" width="40" height="40" rx="8" fill="#7fb8a8" fill-opacity="0.85"/>
+  <rect x="225" y="456" width="40" height="40" rx="8" fill="#7fb8a8" fill-opacity="0.85"/>
+  <rect x="279" y="456" width="40" height="40" rx="8" fill="#7fb8a8" fill-opacity="0.85"/>
+  <rect x="333" y="456" width="40" height="40" rx="8" fill="#7fb8a8" fill-opacity="0.85"/>
+  <rect x="387" y="456" width="40" height="40" rx="8" fill="#9c94cf" fill-opacity="0.45" stroke="#9c94cf" stroke-width="1.5"/>
+  <rect x="441" y="456" width="40" height="40" rx="8" fill="#7fb8a8" fill-opacity="0.85"/>
+  <rect x="495" y="456" width="40" height="40" rx="8" fill="#7fb8a8" fill-opacity="0.85"/>
+  <rect x="549" y="456" width="40" height="40" rx="8" fill="none" stroke="rgba(245,245,242,0.28)" stroke-width="1.5"/>
+  <rect x="171" y="510" width="40" height="40" rx="8" fill="#7fb8a8" fill-opacity="0.85"/>
+  <rect x="225" y="510" width="40" height="40" rx="8" fill="#7fb8a8" fill-opacity="0.85"/>
+  <rect x="279" y="510" width="40" height="40" rx="8" fill="#7fb8a8" fill-opacity="0.85"/>
+  <rect x="333" y="510" width="40" height="40" rx="8" fill="#7fb8a8" fill-opacity="0.85"/>
+  <rect x="387" y="510" width="40" height="40" rx="8" fill="#7fb8a8" fill-opacity="0.85"/>
+  <rect x="441" y="510" width="40" height="40" rx="8" fill="#9c94cf" fill-opacity="0.45" stroke="#9c94cf" stroke-width="1.5"/>
+  <rect x="495" y="510" width="40" height="40" rx="8" fill="none" stroke="rgba(245,245,242,0.28)" stroke-width="1.5"/>
+  <rect x="549" y="510" width="40" height="40" rx="8" fill="none" stroke="rgba(245,245,242,0.28)" stroke-width="1.5"/>
+  <rect x="171" y="564" width="40" height="40" rx="8" fill="#7fb8a8" fill-opacity="0.85"/>
+  <rect x="225" y="564" width="40" height="40" rx="8" fill="#7fb8a8" fill-opacity="0.85"/>
+  <rect x="279" y="564" width="40" height="40" rx="8" fill="#7fb8a8" fill-opacity="0.85"/>
+  <rect x="333" y="564" width="40" height="40" rx="8" fill="#7fb8a8" fill-opacity="0.85"/>
+  <rect x="387" y="564" width="40" height="40" rx="8" fill="#7fb8a8" fill-opacity="0.85"/>
+  <rect x="441" y="564" width="40" height="40" rx="8" fill="#7fb8a8" fill-opacity="0.85"/>
+  <rect x="495" y="564" width="40" height="40" rx="8" fill="#9c94cf" fill-opacity="0.45" stroke="#9c94cf" stroke-width="1.5"/>
+  <rect x="549" y="564" width="40" height="40" rx="8" fill="none" stroke="rgba(245,245,242,0.28)" stroke-width="1.5"/>
+  <rect x="171" y="618" width="40" height="40" rx="8" fill="#7fb8a8" fill-opacity="0.85"/>
+  <rect x="225" y="618" width="40" height="40" rx="8" fill="#7fb8a8" fill-opacity="0.85"/>
+  <rect x="279" y="618" width="40" height="40" rx="8" fill="#7fb8a8" fill-opacity="0.85"/>
+  <rect x="333" y="618" width="40" height="40" rx="8" fill="#7fb8a8" fill-opacity="0.85"/>
+  <rect x="387" y="618" width="40" height="40" rx="8" fill="#7fb8a8" fill-opacity="0.85"/>
+  <rect x="441" y="618" width="40" height="40" rx="8" fill="#9c94cf" fill-opacity="0.45" stroke="#9c94cf" stroke-width="1.5"/>
+  <rect x="495" y="618" width="40" height="40" rx="8" fill="none" stroke="rgba(245,245,242,0.28)" stroke-width="1.5"/>
+  <rect x="549" y="618" width="40" height="40" rx="8" fill="none" stroke="rgba(245,245,242,0.28)" stroke-width="1.5"/>
+  <g class="mono muted" font-size="15" letter-spacing="1">
+    <rect x="171" y="696" width="14" height="14" rx="3" fill="#7fb8a8"/><text x="193" y="709">BOOKED</text>
+    <rect x="291" y="696" width="14" height="14" rx="3" fill="#9c94cf" fill-opacity="0.6"/><text x="313" y="709">HELD</text>
+    <rect x="391" y="696" width="14" height="14" rx="3" fill="none" stroke="rgba(245,245,242,0.4)"/><text x="413" y="709">OPEN</text>
+  </g>
+  <text x="171" y="750" class="mono ink" font-size="16" letter-spacing="1">250 USERS → 40 SEATS</text>
+  <text x="800" y="348" class="mono muted" font-size="18" letter-spacing="2" text-anchor="middle">02 — BOOKING FLOW</text>
+  <rect x="690" y="380" width="220" height="44" rx="10" class="node"/>
+  <text x="800.0" y="407.0" class="mono ink" font-size="15" letter-spacing="1" text-anchor="middle">REDIS SEAT HOLD</text>
+  <rect x="690" y="456" width="220" height="44" rx="10" class="node"/>
+  <text x="800.0" y="483.0" class="mono ink" font-size="15" letter-spacing="1" text-anchor="middle">ROW LOCK + ATOMIC</text>
+  <line x1="800" y1="426" x2="800" y2="452" stroke="#7fb8a8" stroke-width="2" marker-end="url(#arrow)"/>
+  <rect x="690" y="532" width="220" height="44" rx="10" class="node"/>
+  <text x="800.0" y="559.0" class="mono ink" font-size="15" letter-spacing="1" text-anchor="middle">RABBITMQ · CELERY</text>
+  <line x1="800" y1="502" x2="800" y2="528" stroke="#7fb8a8" stroke-width="2" marker-end="url(#arrow)"/>
+  <rect x="690" y="608" width="220" height="44" rx="10" class="node"/>
+  <text x="800.0" y="635.0" class="mono ink" font-size="15" letter-spacing="1" text-anchor="middle">WEBSOCKET PUSH</text>
+  <line x1="800" y1="578" x2="800" y2="604" stroke="#7fb8a8" stroke-width="2" marker-end="url(#arrow)"/>
+  <line x1="646" y1="402" x2="684" y2="402" stroke="#7fb8a8" stroke-width="2" marker-end="url(#arrow)"/>
+  <line x1="916" y1="630" x2="954" y2="630" stroke="#7fb8a8" stroke-width="2" marker-end="url(#arrow)"/>
+  <text x="800" y="702" class="mono muted" font-size="15" text-anchor="middle">idempotency keys</text>
+  <text x="800" y="726" class="mono muted" font-size="15" text-anchor="middle">+ saga recovery</text>
+  <text x="992" y="348" class="mono muted" font-size="18" letter-spacing="3" text-anchor="start">03 — LOAD TEST</text>
+  <rect x="1319.0" y="320" width="134" height="38" rx="19" fill="rgba(127,184,168,0.14)" stroke="#7fb8a8" stroke-width="1.5"/>
+  <text x="1386" y="345" class="mono" fill="#7fb8a8" font-size="16" letter-spacing="1" text-anchor="middle">0 OVERSOLD</text>
+  <rect x="992" y="384" width="220" height="150" rx="10" class="inset"/>
+  <text x="1014" y="464" class="sans sage" font-size="52" font-weight="700" letter-spacing="-1">40/40</text>
+  <text x="1014" y="504" class="mono muted" font-size="14" letter-spacing="1">CONFIRMED BOOKINGS</text>
+  <rect x="1228" y="384" width="220" height="150" rx="10" class="inset"/>
+  <text x="1250" y="464" class="sans sage" font-size="52" font-weight="700" letter-spacing="-1">0</text>
+  <text x="1250" y="504" class="mono muted" font-size="14" letter-spacing="1">OVERSOLD SEATS</text>
+  <rect x="992" y="550" width="220" height="150" rx="10" class="inset"/>
+  <text x="1014" y="630" class="sans sage" font-size="52" font-weight="700" letter-spacing="-1">0</text>
+  <text x="1014" y="670" class="mono muted" font-size="14" letter-spacing="1">UNEXPECTED ERRORS</text>
+  <rect x="1228" y="550" width="220" height="150" rx="10" class="inset"/>
+  <text x="1250" y="630" class="sans ink" font-size="52" font-weight="700" letter-spacing="-1">2,093</text>
+  <text x="1250" y="670" class="mono muted" font-size="14" letter-spacing="1">CONFIRM ATTEMPTS</text>
+  <text x="992" y="752" class="mono muted" font-size="15" letter-spacing="1">15 automated tests · real-thread concurrency</text>
+
+  <line x1="120" y1="860" x2="1480" y2="860" class="rule"/>
+  <text x="120" y="902" class="mono muted" font-size="16" letter-spacing="1">Measured with Locust: 250 concurrent users competing for 40 seats</text>
+  <text x="1480" y="902" class="mono muted" font-size="16" letter-spacing="1" text-anchor="end">DJANGO · POSTGRES · REDIS · RABBITMQ</text>
+</svg>
